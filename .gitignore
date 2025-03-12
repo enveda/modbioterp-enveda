@@ -1,3 +1,6 @@
+# folders
+workshop_data/ligands_pdbs/
+
 # code editors
 .vscode/
 .idea/
