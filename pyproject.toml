@@ -1,0 +1,75 @@
+[tool.poetry]
+name = "enzyme-ml"
+version = "0.1.0"
+description = ""
+authors = ["Enveda <it@envedabio.com>"]
+readme = "README.md"
+packages = [{ include = "enzyme_ml" }]
+
+[tool.poetry.dependencies]
+python = "~3.10"
+biopandas = "^0.5.1"
+scikit-learn = "^1.6.1"
+rdkit = "^2024.9.5"
+biopython = "^1.85"
+mordred = "^1.2.0"
+ifeatureomegacli = "^1.0.2"
+seaborn = "^0.13.2"
+pandas = "^2.2.3"
+ipykernel = "^6.29.5"
+matplotlib = "^3.4.3"
+tqdm = "^4.67.1"
+torch = "^2.6.0"
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0"
+pre-commit = "^3"
+ipykernel = "^6.29.5"
+
+[tool.poetry.group.test]
+optional = true
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+# ruff settings.
+# See here for defaults: https://docs.astral.sh/ruff/configuration/
+# some settings are commented out with examples of how to use them.
+# https://docs.astral.sh/ruff/settings/ for a list of full settings
+[tool.ruff]
+
+# Exclude directories in addition to the defaults
+# extend-exclude = ["scripts/hello_world.py"]
+
+# Same as Black.
+line-length = 88
+
+[tool.ruff.lint]
+# Enable Pyflakes (`F`) and a subset of the pycodestyle (`E`)  codes by default.
+# Unlike Flake8, Ruff doesn't enable pycodestyle warnings (`W`) or
+# McCabe complexity (`C901`) by default.
+select = ["B", "E", "F", "I"]
+ignore = []
+
+[tool.ruff.lint.per-file-ignores]
+# Ignore `E402` (import violations) in all `__init__.py` files
+# "__init__.py" = ["E402"]
+# Ignore line length violations in test files with "snapshots" in the name
+# "tests/**/*snapshots*" = ["E501"]
+
+[tool.ruff.format]
+# Like Black, use double quotes for strings.
+quote-style = "double"
+
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
